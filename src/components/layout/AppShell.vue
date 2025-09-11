@@ -25,11 +25,17 @@ const toggleTheme = inject<() => void>("toggleTheme");
 <style scoped>
 .shell {
   display: grid;
-  grid-template-columns: 260px 1fr;
-  min-height: 100vh;
+  grid-template-columns: 200px 1fr;
+  grid-template-rows: auto 1fr;
+  grid-template-areas: "side-nav content";
+}
+header {
+  grid-area: header;
 }
 .content {
   background: var(--c-bg);
+  grid-area: content;
+  width: 100%;
 }
 .btn {
   padding: 0.4rem 0.8rem;
