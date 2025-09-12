@@ -9,7 +9,7 @@ const toggleTheme = inject<() => void>("toggleTheme");
   <div class="shell" :class="theme">
     <Sidebar />
     <main class="content">
-      <header class="flex justify-between items-center p-4 border-b">
+      <!-- <header class="flex justify-between items-center p-4 border-b">
         <h1>VueBoard</h1>
         <button class="btn" @click="toggleTheme && toggleTheme()">
           Toggle theme
@@ -17,7 +17,8 @@ const toggleTheme = inject<() => void>("toggleTheme");
       </header>
       <section class="p-4">
         <slot />
-      </section>
+      </section> -->
+      <RouterView />
     </main>
   </div>
 </template>

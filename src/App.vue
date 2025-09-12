@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import { provide, ref } from "vue";
 import { useTheme } from "@/composables/useTheme";
-import AppShell from "@/components/layout/AppShell.vue";
+import { provide, ref } from "vue";
 
 const { theme, toggleTheme } = useTheme();
 provide("theme", theme); // provide/inject example
@@ -20,11 +19,9 @@ const ready = ref(true);
     <Suspense>
       <template #default>
         <RouterView v-slot="{ Component }">
-          <AppShell>
-            <transition name="fade" mode="out-in">
-              <component :is="Component" />
-            </transition>
-          </AppShell>
+          <transition name="fade" mode="out-in">
+            <component :is="Component" />
+          </transition>
         </RouterView>
       </template>
       <template #fallback>

@@ -1,3 +1,4 @@
+import AppShell from "@/components/layout/AppShell.vue";
 import { useAuth } from "@/stores/auth";
 import { createRouter, createWebHistory } from "vue-router";
 
@@ -16,13 +17,20 @@ const router = createRouter({
       component: LoginView,
       meta: { public: true },
     },
-    { path: "/", name: "dashboard", component: DashboardView },
     {
-      path: "/board/:boardId",
-      name: "board",
-      component: BoardView,
-      props: true,
+      path: "/",
+      component: AppShell,
+      children: [
+        { path: "", name: "dashboard", component: DashboardView },
+        {
+          path: "/board/:boardId",
+          name: "board",
+          component: BoardView,
+          props: true,
+        },
+      ],
     },
+
     { path: "/settings", name: "settings", component: SettingsView },
     {
       path: "/:pathMatch(.*)*",
